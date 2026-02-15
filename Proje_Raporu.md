@@ -146,6 +146,10 @@ hata_payi = ((dp_sonuc - ga_sonuc) / dp_sonuc) * 100
     *   **GA:** Çok daha hızlı çalışır (0.1 - 0.2 saniye). Ancak sonucu DP'den biraz daha düşük olabilir (örneğin %1 ile %5 arası bir hata payı).
     *   **Yorum:** GA, DP'ye göre **çok daha hızlı** olmasına rağmen, mükemmel sonuca **çok yakın** bir değer bulmayı başarmıştır.
 3.  **N=10000 Durumu:**
-    *   **DP:** Bu boyutta DP'nin oluşturması gereken tablo o kadar büyüktür ki (10000 x 250000 gibi), bilgisayarın belleği yetmez (`MemoryError`) veya işlem dakikalarca sürer. Bu yüzden kodumuzda DP bu aşamada bilerek çalıştırılmaz (Atlandı yazar).
-    *   **GA:** Genetik Algoritma bellekten bağımsız olduğu için 1-2 saniyede çalışır ve bir sonuç üretir.
+    *   **DP Analizi:** Bu boyutta DP'nin oluşturması gereken tablo `Eşya Sayısı (N) x Kapasite (W)` boyutundadır. 
+        *   Tahmini Kapasite: ~250.000
+        *   Hücre Sayısı: 10.000 x 250.000 = 2.500.000.000 (2.5 Milyar)
+        *   Bellek Gereksinimi: ~10 GB - 70 GB RAM (Python int boyutu nedeniyle)
+        *   **Sonuç:** Bu işlem standart bir bilgisayarın belleğini (RAM) aşacağı için işletim sistemi işlemi sonlandırır (`MemoryError`) veya bilgisayar donar. Bu sebeple kodumuzda bir koruma mekanizması (`if n > 2000`) ile bu adım **bilerek** atlanmıştır. Bu durum, proje isterlerinde belirtilen *"DP hangi N değerinden sonra patlıyor?"* sorusunun cevabıdır.
+    *   **GA Analizi:** Genetik Algoritma bellekten bağımsız olduğu için 1-2 saniyede çalışır ve optimuma yakın bir sonuç üretir.
     *   **Yorum:** Bu senaryo, GA gibi sezgisel algoritmaların neden gerekli olduğunu kanıtlar. DP'nin tamamen çöktüğü yerde GA çalışmaya devam eder.
