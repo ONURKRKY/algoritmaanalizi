@@ -87,24 +87,48 @@ Bu şema, hangi dosyanın hangisini çağırdığını gösterir:
 
 ## 4. Örnek Çıktı ve Karşılaştırma Analizi
 
-Program çalıştırıldığında üreteceği çıktı şuna benzer bir tablo olacaktır:
+Program çalıştırıldığında üreteceği çıktı artık tablo yerine detaylı metin raporu şeklindedir:
 
 ```
 ---------------------------------------------------------------------------
-N (Eleman) | Yöntem               | Süre (sn)       | Sonuç (Değer)  
+SONUÇLAR VE KARŞILAŞTIRMA RAPORU
 ---------------------------------------------------------------------------
-100        | Dinamik Prog. (DP)   | 0.01500         | 3450           
-100        | Genetik Alg. (GA)    | 0.08200         | 3450           
+
+>> SENARYO: N = 100 Eleman
+------------------------------
+1. Yöntem: Dinamik Programlama (DP)
+   Sonuç: 3450
+   Süre:  0.01500 saniye
+2. Yöntem: Genetik Algoritma (GA)
+   Sonuç: 3450
+   Süre:  0.08200 saniye
+------------------------------
+ANALİZ: GA sonucu, Optimum (DP) sonuca göre %0.00 farkla bulundu.
 ---------------------------------------------------------------------------
-   >>> GA, Optimuma (DP) göre %0.00 farkla çalıştı.
+
+>> SENARYO: N = 1000 Eleman
+------------------------------
+1. Yöntem: Dinamik Programlama (DP)
+   Sonuç: 28900
+   Süre:  0.95000 saniye
+2. Yöntem: Genetik Algoritma (GA)
+   Sonuç: 27455
+   Süre:  0.15000 saniye
+------------------------------
+ANALİZ: GA sonucu, Optimum (DP) sonuca göre %5.00 farkla bulundu.
 ---------------------------------------------------------------------------
-1000       | Dinamik Prog. (DP)   | 0.95000         | 28900          
-1000       | Genetik Alg. (GA)    | 0.15000         | 27455          
----------------------------------------------------------------------------
-   >>> GA, Optimuma (DP) göre %5.00 farkla çalıştı.
----------------------------------------------------------------------------
-10000      | DP (Atlandı-Bellek)  | -               | -              
-10000      | Genetik Alg. (GA)    | 1.20000         | 250400         
+
+>> SENARYO: N = 10000 Eleman
+------------------------------
+1. Yöntem: Dinamik Programlama (DP)
+   Durum: ATLANDI (Bellek/Zaman kısıtı nedeniyle)
+   Sonuç: -
+   Süre:  -
+2. Yöntem: Genetik Algoritma (GA)
+   Sonuç: 250400
+   Süre:  1.20000 saniye
+------------------------------
+ANALİZ: DP çalıştırılamadığı için karşılaştırma yapılamadı.
 ---------------------------------------------------------------------------
 ```
 
